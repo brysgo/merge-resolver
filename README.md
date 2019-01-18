@@ -60,12 +60,12 @@ Should print:
 
 ```json
     {
-      __typename: "Query",
-      blah: {
-        __typename: "Blah",
-        bazzez: [
-          { __typename: "Baz", a: "b" },
-          { __typename: "Baz", a: "c", d: "fe" }
+      "__typename": "Query",
+      "blah": {
+        "__typename": "Blah",
+        "bazzez": [
+          { "__typename": "Baz", "a": "b" },
+          { "__typename": "Baz", "a": "c", "d": "fe" }
         ]
       }
     }
