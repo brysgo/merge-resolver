@@ -1,5 +1,6 @@
 import { mergeResolver } from "./";
 import { mergeResolver as mergeResolverDist } from "../dist";
+import 'array-flat-polyfill';
 
 describe("build products", () => {
   it("doesn't break", () => {
