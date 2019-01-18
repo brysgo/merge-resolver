@@ -1,6 +1,8 @@
 import { mergeResolver } from "./";
 import { mergeResolver as mergeResolverDist } from "../dist";
-import 'array-flat-polyfill';
+import flat from 'array.prototype.flat';
+
+flat.shim();
 
 describe("build products", () => {
   it("doesn't break", () => {
