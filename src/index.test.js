@@ -1,6 +1,6 @@
 import { mergeResolver } from "./";
 import { mergeResolver as mergeResolverDist } from "../dist";
-import flat from 'array.prototype.flat';
+import flat from "array.prototype.flat";
 
 flat.shim();
 
@@ -61,6 +61,16 @@ describe("mergeResolver", () => {
     const typeB = "B";
     const merge = mergeResolver({ typeFromObj: o => o });
     expect(() => merge([typeA, typeB])).toThrowErrorMatchingSnapshot();
+  });
+
+  it("supports setting types on arrays", () => {
+    const merge = mergeResolver({
+      Array: (values, join) => "dope",
+      typeFromObj: o => (Array.isArray(o) ? "Array" : undefined)
+    });
+    expect(
+      merge([{ a: { one: "one" }, b: [] }, { a: { one: "two" }, b: [] }])
+    ).toMatchSnapshot();
   });
 
   it("delegates merge decisions by type", () => {

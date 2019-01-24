@@ -1,5 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`mergeResolver supports setting types on arrays 1`] = `
+Object {
+  "a": Object {
+    "one": "two",
+  },
+  "b": "dope",
+}
+`;
+
 exports[`mergeResolver throws an error instead of merging different types 1`] = `
 "TypeMismatchError: Cannot merge two different types
 
