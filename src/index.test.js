@@ -122,3 +122,33 @@ describe("mergeResolver", () => {
     });
   });
 });
+
+describe("when types are defined without resolvers", () => {
+  it("still uses default resolvers", () => {
+    const merge = mergeResolver({
+      typeFromObj: obj => obj && obj.__typename
+    });
+
+    expect(
+      merge([
+        {
+          __typename: "NoResolver",
+          a: 1,
+          b: { __typename: "And", c: "hello" },
+          d: ["ei"]
+        },
+        {
+          __typename: "NoResolver",
+          a: 2,
+          b: { __typename: "And", c: "world" },
+          d: ["eio"]
+        }
+      ])
+    ).toEqual({
+      __typename: "NoResolver",
+      a: 2,
+      b: { __typename: "And", c: "world" },
+      d: ["ei", "eio"]
+    });
+  });
+});
