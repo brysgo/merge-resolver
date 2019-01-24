@@ -1,6 +1,6 @@
 {
   "name": "merge-resolver",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "merge nested objects with graphql-like resolvers",
   "author": "Bryan Goldstein",
   "license": "MIT",
