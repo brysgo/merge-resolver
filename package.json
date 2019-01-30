@@ -1,7 +1,7 @@
 {
   "name": "merge-resolver",
   "version": "0.0.0-semantic-release",
-  "main": "index.js",
+  "main": "build/index.js",
   "license": "MIT",
   "scripts": {
     "build": "neutrino build",
