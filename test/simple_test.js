@@ -1,5 +1,5 @@
-import { mergeResolver } from "./";
-import { mergeResolver as mergeResolverDist } from "../dist";
+import { mergeResolver } from "../src";
+import { mergeResolver as mergeResolverDist } from "../build";
 import flat from "array.prototype.flat";
 
 flat.shim();
