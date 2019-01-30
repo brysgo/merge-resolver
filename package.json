@@ -1,6 +1,6 @@
 {
   "name": "merge-resolver",
-  "version": "0.1.1",
+  "version": "0.0.0-semantic-release",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
