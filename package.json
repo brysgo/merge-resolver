@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "neutrino build",
+    "pretest": "yarn build",
     "test": "neutrino test"
   },
   "dependencies": {
