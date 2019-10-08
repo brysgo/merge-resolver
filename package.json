@@ -4,16 +4,20 @@
   "main": "build/index.js",
   "license": "MIT",
   "scripts": {
-    "build": "neutrino build",
+    "build": "babel src -d ./build",
     "pretest": "yarn build",
-    "test": "neutrino test"
+    "test": "jest"
   },
   "dependencies": {
     "array.prototype.flat": "^1.2.1"
   },
   "devDependencies": {
-    "@neutrinojs/jest": "^8.3.0",
-    "@neutrinojs/library": "^8.3.0",
-    "neutrino": "^8.3.0"
+    "@babel/cli": "^7.6.3",
+    "@babel/core": "^7.6.3",
+    "@babel/preset-env": "^7.6.3",
+    "jest": "^24.9.0"
+  },
+  "jest": {
+      "testRegex": "./test/.*.js$"
   }
 }
