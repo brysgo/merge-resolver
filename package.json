@@ -9,7 +9,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "array.prototype.flat": "^1.2.1"
+    "array.prototype.flat": "^1.2.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.3",
