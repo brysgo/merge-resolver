@@ -69,7 +69,10 @@ describe("mergeResolver", () => {
       typeFromObj: o => (Array.isArray(o) ? "Array" : undefined)
     });
     expect(
-      merge([{ a: { one: "one" }, b: [] }, { a: { one: "two" }, b: [] }])
+      merge([
+        { a: { one: "one" }, b: [] },
+        { a: { one: "two" }, b: [] }
+      ])
     ).toMatchSnapshot();
   });
 
@@ -77,7 +80,6 @@ describe("mergeResolver", () => {
     const thing1 = {
       __typename: "Query",
       blah: {
-        __typename: "Blah",
         bazzez: [
           { __typename: "Baz", a: "b" },
           { __typename: "Baz", a: "c", d: "e" }
@@ -87,7 +89,6 @@ describe("mergeResolver", () => {
     const thing2 = {
       __typename: "Query",
       blah: {
-        __typename: "Blah",
         bazzez: [{ __typename: "Baz", a: "c", d: "f" }]
       }
     };
@@ -107,13 +108,21 @@ describe("mergeResolver", () => {
       Baz: {
         d: values => values.join("")
       },
-      typeFromObj: obj => obj && obj.__typename
+      typeFromObj: (obj, path, ancestorTypes) => {
+        if (obj && obj.__typename) return obj.__typename;
+        if (
+          path &&
+          ancestorTypes &&
+          Array.from(path).pop() === "blah" &&
+          Array.from(ancestorTypes).pop() === "Query"
+        )
+          return "Blah";
+      }
     });
 
     expect(merge([thing1, thing2])).toEqual({
       __typename: "Query",
       blah: {
-        __typename: "Blah",
         bazzez: [
           { __typename: "Baz", a: "b" },
           { __typename: "Baz", a: "c", d: "fe" }
