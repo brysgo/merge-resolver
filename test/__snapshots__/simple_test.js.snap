@@ -5,7 +5,13 @@ Object {
   "a": Object {
     "one": "two",
   },
-  "b": "dope",
+  "b": Array [
+    Object {
+      "baz": "bop",
+      "detectedType": "Item",
+      "foo": "bar",
+    },
+  ],
 }
 `;
 

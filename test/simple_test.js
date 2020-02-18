@@ -65,13 +65,24 @@ describe("mergeResolver", () => {
 
   it("supports setting types on arrays", () => {
     const merge = mergeResolver({
-      Array: (values, join) => "dope",
-      typeFromObj: o => (Array.isArray(o) ? "Array" : undefined)
+      Item: ([left, right], join) => {
+        return {
+          detectedType: "Item",
+          ...join(left, right)
+        };
+      },
+      Array: ([left, right], join) => left.map((l, i) => join(l, right[i])),
+      typeFromObj: (o, path, ancestorTypes) => {
+        if ("Array" === Array.from(ancestorTypes).pop()) {
+          return "Item";
+        }
+        return Array.isArray(o) ? "Array" : undefined;
+      }
     });
     expect(
       merge([
-        { a: { one: "one" }, b: [] },
-        { a: { one: "two" }, b: [] }
+        { a: { one: "one" }, b: [{ foo: "bar" }] },
+        { a: { one: "two" }, b: [{ baz: "bop" }] }
       ])
     ).toMatchSnapshot();
   });
