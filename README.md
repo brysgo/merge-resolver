@@ -1,8 +1,8 @@
 # merge-resolver
 
-[![CircleCI][build-badge]][build]
+![CI](https://github.com/brysgo/merge-resolver/workflows/CI/badge.svg)
 [![npm package][npm-badge]][npm]
-[![Greenkeeper badge][greenkeeper-badge]][greenkeeper]
+![Update](https://github.com/brysgo/merge-resolver/workflows/Update/badge.svg)
 
 > merge nested objects with graphql-like resolvers
 
@@ -77,12 +77,6 @@ MIT License
 
 © Bryan Goldstein and Seth Jensen
 
-[build-badge]: https://circleci.com/gh/brysgo/merge-resolver.svg?style=shield
-[build]: https://circleci.com/gh/brysgo/merge-resolver
-
 [npm-badge]: https://img.shields.io/npm/v/merge-resolver.png?style=flat-square
 [npm]: https://www.npmjs.org/package/merge-resolver
 
-
-[greenkeeper-badge]: https://badges.greenkeeper.io/brysgo/merge-resolver.svg
-[greenkeeper]: https://greenkeeper.io/
